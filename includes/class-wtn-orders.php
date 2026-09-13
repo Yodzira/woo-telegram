@@ -41,10 +41,26 @@ class WTN_Orders {
 			$items[] = array( $item->get_name(), (int) $item->get_quantity() );
 		}
 
+		// At woocommerce_new_order the total may not be calculated yet
+		// (checkout finalizes it later) — fall back to the item sum.
+		$total = (float) $order->get_total();
+		if ( $total <= 0 ) {
+			foreach ( $order->get_items() as $item ) {
+				$line = (float) $item->get_total();
+				if ( $line <= 0 && method_exists( $item, 'get_product' ) ) {
+					$product = $item->get_product();
+					if ( $product && function_exists( 'wc_get_price_to_display' ) ) {
+						$line = (float) wc_get_price_to_display( $product ) * (int) $item->get_quantity();
+					}
+				}
+				$total += $line;
+			}
+		}
+
 		$settings = WTN_Settings::get();
 		$payload  = array(
 			'number'   => (string) $order->get_order_number(),
-			'total'    => (string) $order->get_total(),
+			'total'    => number_format( $total, 2, '.', '' ),
 			'currency' => (string) $order->get_currency(),
 			'status'   => 'new',
 			'items'    => $items,
