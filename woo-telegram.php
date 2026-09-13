@@ -3,7 +3,7 @@
  * Plugin Name:       WooCommerce to Telegram
  * Plugin URI:        https://github.com/Yodzira/woo-telegram
  * Description:       Instant WooCommerce order notifications in Telegram — queued delivery with retries, flood protection, 60-second setup wizard. Order emails get lost; your Telegram doesn't.
- * Version:           0.1.0
+ * Version:           0.1.1
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Yodzira
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'WTN_VERSION', '0.1.0' );
+define( 'WTN_VERSION', '0.1.1' );
 define( 'WTN_FILE', __FILE__ );
 define( 'WTN_DIR', __DIR__ );
 

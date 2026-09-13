@@ -159,8 +159,10 @@ class WTN_Orders {
 
 		$payload = $queue[ $index ];
 		$text    = isset( $payload['__status'] ) ? $payload['__status'] : WTN_Message::order( $payload );
+		$text    = apply_filters( 'wtn_message_text', $text, $payload );
+		$chat    = apply_filters( 'wtn_target_chat', $settings['chat'], $payload );
 		$telegram = new WTN_Telegram();
-		$ok       = $telegram->send( $settings['token'], $settings['chat'], $text );
+		$ok       = $telegram->send( $settings['token'], $chat, $text );
 
 		if ( $ok ) {
 			self::drop( $index );
