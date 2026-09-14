@@ -38,3 +38,5 @@
 ## Лицензия / License
 
 GPL-2.0-or-later (совместимо с WordPress).
+
+💰 **[Купить Pro / Buy Pro — 2 990 ₽/год](https://yodsira.duckdns.org/buy/woo-telegram-orders)** — лицензия на 1 сайт, 12 месяцев обновлений.
