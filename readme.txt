@@ -26,7 +26,7 @@ Order emails get lost. Your Telegram doesn't. WooCommerce to Telegram sends a co
 Pro adds automation, reports and integrations on top of the free version
 (one license = one site, 12 months of updates):
 
-https://yodsira.duckdns.org/buy/woo-telegram-orders
+https://yodsira.com/buy/woo-telegram-orders
 
 == Installation ==
 
